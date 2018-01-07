@@ -10,7 +10,7 @@ Returns double the number `x` plus `1`.
 julia> using Example
 
 julia> func(15)
-31
+3
 ```
 """
 func(x) = 2x + 1
