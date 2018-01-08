@@ -11,7 +11,7 @@ matrix:
   allow_failures:
     - julia: nightly
 after_script:
-  - julia -e 'cd(Pkg.dir("StringParserPEG")); include(joindir("doc","make.jl"));'
+  - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
 notifications:
   email:
     on_success: never # default: change

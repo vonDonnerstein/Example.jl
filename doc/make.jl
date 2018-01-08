@@ -1,3 +1,3 @@
 using Documenter, Example
 
-makedocs()
+makedocs(strict=true)
