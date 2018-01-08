@@ -10,7 +10,7 @@ julia:
 matrix:
   allow_failures:
     - julia: nightly
-after_script:
+script:
   - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
 notifications:
   email:
