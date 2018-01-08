@@ -11,12 +11,12 @@ matrix:
   allow_failures:
     - julia: nightly
 script:
-  julia -e 'Pkg.clone(pwd())'
-  julia -e 'Pkg.build("$name")'
-  if [ -f test/runtests.jl ]; then
-  julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
-  fi
-  julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
+  - julia -e 'Pkg.clone(pwd())'
+  - julia -e 'Pkg.build("$name")'
+  - if [ -f test/runtests.jl ]; then
+      julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)';
+    fi
+  - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
 notifications:
   email:
     on_success: never # default: change
