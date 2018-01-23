@@ -16,8 +16,8 @@ script:
   - if [ -f test/runtests.jl ]; then
       julia --check-bounds=yes -e 'Pkg.test("Example", coverage=true)';
     fi
-  - cp -r doc/build doc/commited_build
-  - ls doc/commited_build
+  - mv doc/build doc/commited_build
+  - ls doc
   - cat doc/commited_build/index.md
   - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
   - ls doc
