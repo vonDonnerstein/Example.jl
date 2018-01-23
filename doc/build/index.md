@@ -1,3 +1,4 @@
+Manually inserted
 
 Some index text
 
