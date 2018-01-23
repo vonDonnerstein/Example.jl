@@ -17,7 +17,12 @@ script:
       julia --check-bounds=yes -e 'Pkg.test("Example", coverage=true)';
     fi
   - cp -r doc/build doc/commited_build
+  - ls doc/commited_build
+  - cat doc/commited_build/index.md
   - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"));'
+  - ls doc
+  - cat doc/commited_build/index.md
+  - cat doc/build/index.md
   - diff -r doc/commited_build doc/build # check if the commited documentation is up-to-date
 notifications:
   email:
