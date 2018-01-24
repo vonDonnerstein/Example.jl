@@ -19,7 +19,7 @@ script:
     fi
   - mv doc/build doc/commited_build
   - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"))'
-  - diff -r doc/commited_build doc/build # check if the commited documentation is up-to-date
+  - diff -r -I 'Example.jl/blob/*' doc/commited_build doc/build # check if the commited documentation is up-to-date
 notifications:
   email:
     on_success: never # default: change
