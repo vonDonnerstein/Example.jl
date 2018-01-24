@@ -20,7 +20,8 @@ script:
   - ls doc
   - cat doc/commited_build/index.md
     #  - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"))'
-  - julia -e 'cd(Pkg.dir("Example")); doc = include(joinpath("doc","make.jl")); println(doc.user.build); mkpath(doc.user.build)'
+  - julia -e 'cd(Pkg.dir("Example")); doc = include(joinpath("doc","make.jl")); println(doc.user.build); mkpath(doc.user.build); println(readdir(doc.user.build))'
+  - ls
   - ls doc
   - cat doc/commited_build/index.md
   - cat doc/build/index.md
