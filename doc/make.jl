@@ -1,3 +1,3 @@
 using Documenter, Example
 
-makedocs(strict=true)
+makedocs(root=Pkg.dir("Example", "doc"), build="build", strict=true)
