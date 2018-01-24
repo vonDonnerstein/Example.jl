@@ -13,16 +13,14 @@ matrix:
 script:
   - julia -e 'Pkg.clone(pwd())'
   - julia -e 'Pkg.build("Example")'
+  - cd `julia -e 'println(Pkg.dir("Example"))'`
+  - pwd
   - if [ -f test/runtests.jl ]; then
       julia --check-bounds=yes -e 'Pkg.test("Example", coverage=true)';
     fi
   - mv doc/build doc/commited_build
-  - ls doc
-  - cat doc/commited_build/index.md
-    #  - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"))'
-  - julia -e 'cd(Pkg.dir("Example")); doc = include(joinpath("doc","make.jl")); println(doc.user.build); mkpath(doc.user.build); println(readdir()); println(readdir(doc.user.build))'
-  - pwd
-  - julia -e 'println(Pkg.dir("Example"))'
+  - julia -e 'cd(Pkg.dir("Example")); include(joinpath("doc","make.jl"))'
+    #- julia -e 'cd(Pkg.dir("Example")); doc = include(joinpath("doc","make.jl")); println(doc.user.build); mkpath(doc.user.build); println(readdir()); println(readdir(doc.user.build))'
   - ls
   - ls doc
   - cat doc/commited_build/index.md
