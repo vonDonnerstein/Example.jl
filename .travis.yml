@@ -1,12 +1,12 @@
 language: julia
 os:
   - linux
-  - osx
+    #  - osx
 git:
   depth: 3
 julia:
   - release
-  - nightly
+    #- nightly
 matrix:
   allow_failures:
     - julia: nightly
@@ -24,6 +24,9 @@ script:
   - cat doc/commited_build/index.md
   - cat doc/build/index.md
   - diff -r doc/commited_build doc/build # check if the commited documentation is up-to-date
+  - pwd
+  - julia -e 'open("test","w") do file println(file,"some test content") end'
+  - ls $PWD
 notifications:
   email:
     on_success: never # default: change
